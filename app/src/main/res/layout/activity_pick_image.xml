@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.pdl.app.tongue_app.PickImageActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="500px"
+                android:id="@+id/photo"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择图片"
+                android:id="@+id/picButton"
+                android:layout_below="@+id/photo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40px"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="暂时没有测试结果"
+                android:id="@+id/textview1"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/picButton"
+                android:layout_marginTop="20px"/>
+    </RelativeLayout>
+</ScrollView>
+
