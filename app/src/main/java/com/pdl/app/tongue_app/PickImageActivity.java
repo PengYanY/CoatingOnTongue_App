@@ -39,9 +39,9 @@ public class PickImageActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         Log.i("pdl_pick","onCreate");
         setContentView(R.layout.activity_pick_image);
-        imageView = (ImageView) findViewById(R.id.photo);
-        button = (Button) findViewById(R.id.picButton);
-        textView=(TextView)findViewById(R.id.textview1);
+        imageView = findViewById(R.id.photo);
+        button =  findViewById(R.id.picButton);
+        textView = findViewById(R.id.textview1);
         imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "test.jpg"));
         button.setOnClickListener(new View.OnClickListener() {
             @Override

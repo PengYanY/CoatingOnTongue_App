@@ -20,28 +20,20 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
-import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Message;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
 import android.view.Surface;
-import android.view.SurfaceHolder;
 import android.view.TextureView;
 import android.view.TextureView.SurfaceTextureListener;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.pdl.app.tongue_app.CameraUtil.ImageSaver;
 import com.pdl.app.tongue_app.CameraUtil.SurfaceTextureListenerAdaptor;
-import com.pdl.app.tongue_app.ImagesProcessing.ImagesProc;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,14 +65,16 @@ public class CameraActivity extends Activity {
     private CaptureRequest.Builder mCaptureRequestBuilder;
     private CaptureRequest mCaptureRequest;
     private CameraCaptureSession mCameraCaptureSession;
+    private  Handler doActionHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        mTextureView = (TextureView) findViewById(R.id.textureView);
-        textView=(TextView)findViewById(R.id.textView);
-        imageView=(ImageView)findViewById(R.id.imageview);
+        mTextureView = findViewById(R.id.textureView);
+        textView = findViewById(R.id.textView);
+        imageView = findViewById(R.id.imageview);
+        doActionHandler = new MyHandler(imageView,textView);
     }
     @Override
     protected void onResume() {
@@ -348,8 +342,9 @@ public class CameraActivity extends Activity {
 
 
 
+
     //handler对象处理，此handler对象属于主线程的
-    private  Handler  doActionHandler = new Handler(){
+   /*private  Handler  doActionHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -400,7 +395,7 @@ public class CameraActivity extends Activity {
                     break;
             }
         }
-    };
+    };*/
 
 
 }
